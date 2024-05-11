@@ -39,3 +39,4 @@ C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\refint\sPlo
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.pdb
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.genruntimeconfig.cache
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\ref\sPlotter.dll
+C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.sourcelink.json
