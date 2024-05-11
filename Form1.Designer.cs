@@ -38,6 +38,11 @@
             button2 = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            hpf_dT_txtbx = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
+            hpf_RC_txtbx = new TextBox();
+            checkedListBox3 = new CheckedListBox();
             dT_txtBox = new TextBox();
             label5 = new Label();
             label4 = new Label();
@@ -47,14 +52,14 @@
             numericUpDown1 = new NumericUpDown();
             checkedListBox1 = new CheckedListBox();
             tabPage2 = new TabPage();
-            hpf_dT_txtbx = new TextBox();
-            label6 = new Label();
-            label7 = new Label();
-            hpf_RC_txtbx = new TextBox();
-            checkedListBox3 = new CheckedListBox();
+            label8 = new Label();
+            FFT_window_size_NumUpDn = new NumericUpDown();
+            checkedListBox4 = new CheckedListBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)FFT_window_size_NumUpDn).BeginInit();
             SuspendLayout();
             // 
             // formsPlot1
@@ -171,6 +176,47 @@
             tabPage1.Text = "Time Domain";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // hpf_dT_txtbx
+            // 
+            hpf_dT_txtbx.Location = new Point(157, 158);
+            hpf_dT_txtbx.Name = "hpf_dT_txtbx";
+            hpf_dT_txtbx.Size = new Size(91, 23);
+            hpf_dT_txtbx.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(131, 161);
+            label6.Name = "label6";
+            label6.Size = new Size(20, 15);
+            label6.TabIndex = 12;
+            label6.Text = "dT";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(14, 161);
+            label7.Name = "label7";
+            label7.Size = new Size(22, 15);
+            label7.TabIndex = 11;
+            label7.Text = "RC";
+            // 
+            // hpf_RC_txtbx
+            // 
+            hpf_RC_txtbx.Location = new Point(42, 158);
+            hpf_RC_txtbx.Name = "hpf_RC_txtbx";
+            hpf_RC_txtbx.Size = new Size(73, 23);
+            hpf_RC_txtbx.TabIndex = 10;
+            // 
+            // checkedListBox3
+            // 
+            checkedListBox3.FormattingEnabled = true;
+            checkedListBox3.Items.AddRange(new object[] { "High Pass Filter" });
+            checkedListBox3.Location = new Point(6, 134);
+            checkedListBox3.Name = "checkedListBox3";
+            checkedListBox3.Size = new Size(260, 58);
+            checkedListBox3.TabIndex = 9;
+            // 
             // dT_txtBox
             // 
             dT_txtBox.Location = new Point(157, 94);
@@ -241,6 +287,9 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label8);
+            tabPage2.Controls.Add(FFT_window_size_NumUpDn);
+            tabPage2.Controls.Add(checkedListBox4);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -249,46 +298,31 @@
             tabPage2.Text = "Frequency Domain";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // hpf_dT_txtbx
+            // label8
             // 
-            hpf_dT_txtbx.Location = new Point(157, 158);
-            hpf_dT_txtbx.Name = "hpf_dT_txtbx";
-            hpf_dT_txtbx.Size = new Size(91, 23);
-            hpf_dT_txtbx.TabIndex = 13;
+            label8.AutoSize = true;
+            label8.Location = new Point(16, 29);
+            label8.Name = "label8";
+            label8.Size = new Size(74, 15);
+            label8.TabIndex = 5;
+            label8.Text = "Window Size";
             // 
-            // label6
+            // FFT_window_size_NumUpDn
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(131, 161);
-            label6.Name = "label6";
-            label6.Size = new Size(20, 15);
-            label6.TabIndex = 12;
-            label6.Text = "dT";
+            FFT_window_size_NumUpDn.Location = new Point(100, 27);
+            FFT_window_size_NumUpDn.Name = "FFT_window_size_NumUpDn";
+            FFT_window_size_NumUpDn.Size = new Size(121, 23);
+            FFT_window_size_NumUpDn.TabIndex = 4;
+            FFT_window_size_NumUpDn.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // label7
+            // checkedListBox4
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(14, 161);
-            label7.Name = "label7";
-            label7.Size = new Size(22, 15);
-            label7.TabIndex = 11;
-            label7.Text = "RC";
-            // 
-            // hpf_RC_txtbx
-            // 
-            hpf_RC_txtbx.Location = new Point(42, 158);
-            hpf_RC_txtbx.Name = "hpf_RC_txtbx";
-            hpf_RC_txtbx.Size = new Size(73, 23);
-            hpf_RC_txtbx.TabIndex = 10;
-            // 
-            // checkedListBox3
-            // 
-            checkedListBox3.FormattingEnabled = true;
-            checkedListBox3.Items.AddRange(new object[] { "High Pass Filter" });
-            checkedListBox3.Location = new Point(6, 134);
-            checkedListBox3.Name = "checkedListBox3";
-            checkedListBox3.Size = new Size(260, 58);
-            checkedListBox3.TabIndex = 9;
+            checkedListBox4.FormattingEnabled = true;
+            checkedListBox4.Items.AddRange(new object[] { "FFT" });
+            checkedListBox4.Location = new Point(6, 6);
+            checkedListBox4.Name = "checkedListBox4";
+            checkedListBox4.Size = new Size(248, 58);
+            checkedListBox4.TabIndex = 0;
             // 
             // Form1
             // 
@@ -312,6 +346,9 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)FFT_window_size_NumUpDn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -342,5 +379,8 @@
         private Label label7;
         private TextBox hpf_RC_txtbx;
         private CheckedListBox checkedListBox3;
+        private Label label8;
+        private NumericUpDown FFT_window_size_NumUpDn;
+        private CheckedListBox checkedListBox4;
     }
 }

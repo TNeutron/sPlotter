@@ -8,12 +8,21 @@
     ".NETCoreApp,Version=v8.0": {
       "sPlotter/1.0.0": {
         "dependencies": {
+          "FftSharp": "2.1.0",
           "ScottPlot": "5.0.34",
           "ScottPlot.WinForms": "5.0.34",
           "System.IO.Ports": "8.0.0"
         },
         "runtime": {
           "sPlotter.dll": {}
+        }
+      },
+      "FftSharp/2.1.0": {
+        "runtime": {
+          "lib/net6.0/FftSharp.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/3.1.9": {},
@@ -250,6 +259,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FftSharp/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SXjcF9LR7DG5qe6SlH+VhGUZ4Sp3X1T86KA/9Ra3RaFoWITRmsvt9e57Yi8Fkaza/2r/153e+AfjdNVr1x9Ypw==",
+      "path": "fftsharp/2.1.0",
+      "hashPath": "fftsharp.2.1.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.9": {
       "type": "package",

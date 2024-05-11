@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YuDVIJuqqk9Tq1chrsBhOVyzXv6PXSiFDF73CeBHQT76kq6M5pyZA/A2r3AonUvKs0/NG3lOVkJlFxITYZz+pg==",
+  "dgSpecHash": "68nqLBTkaDSPJ9cC0su42e1Xa5e86wMkb16KjT1PpK/7/qXWDr3y6UYq+aSwA9wTNBZsVyb12+iRa/860lmu3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sayed Nowroz\\source\\repos\\sPlotter\\sPlotter.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\fftsharp\\2.1.0\\fftsharp.2.1.0.nupkg.sha512",
     "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
     "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\opentk\\3.1.0\\opentk.3.1.0.nupkg.sha512",

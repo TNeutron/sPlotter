@@ -49,6 +49,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "FftSharp": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "ScottPlot": {
               "target": "Package",
               "version": "[5.0.34, )"

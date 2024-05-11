@@ -40,3 +40,4 @@ C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.pd
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.genruntimeconfig.cache
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\ref\sPlotter.dll
 C:\Users\Sayed Nowroz\source\repos\sPlotter\obj\Debug\net8.0-windows\sPlotter.sourcelink.json
+C:\Users\Sayed Nowroz\source\repos\sPlotter\bin\Debug\net8.0-windows\FftSharp.dll

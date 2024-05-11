@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "FftSharp/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FftSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FftSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.9": {
         "type": "package",
         "compile": {
@@ -332,6 +345,23 @@
     }
   },
   "libraries": {
+    "FftSharp/2.1.0": {
+      "sha512": "SXjcF9LR7DG5qe6SlH+VhGUZ4Sp3X1T86KA/9Ra3RaFoWITRmsvt9e57Yi8Fkaza/2r/153e+AfjdNVr1x9Ypw==",
+      "type": "package",
+      "path": "fftsharp/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fftsharp.2.1.0.nupkg.sha512",
+        "fftsharp.nuspec",
+        "icon.png",
+        "lib/net6.0/FftSharp.dll",
+        "lib/net6.0/FftSharp.xml",
+        "lib/netstandard2.0/FftSharp.dll",
+        "lib/netstandard2.0/FftSharp.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.9": {
       "sha512": "e+/BrhryHoMojWlbcPJAFcShpk3JYvsMfrmoM26dnvHARWR6vtmGbfHppZcANVqf7DUBDIRxlZXcWg7v/9e1TQ==",
       "type": "package",
@@ -810,6 +840,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "FftSharp >= 2.1.0",
       "ScottPlot >= 5.0.34",
       "ScottPlot.WinForms >= 5.0.34",
       "System.IO.Ports >= 8.0.0"
@@ -864,6 +895,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "FftSharp": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "ScottPlot": {
             "target": "Package",
             "version": "[5.0.34, )"
