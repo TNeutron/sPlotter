@@ -1,5 +1,6 @@
 using ScottPlot;
 using System.IO.Ports;
+using System.Security.Cryptography;
 
 namespace sPlotter
 {
@@ -34,7 +35,7 @@ namespace sPlotter
             {
                 double sum = 0;
 
-                for (int j = 4; j != 0; j--)
+                for (int j = windowSize-1; j != 0; j--)
                 {
                     sum = sum + data[i - j];
 
@@ -46,6 +47,45 @@ namespace sPlotter
 
             return filteredData;
         }
+
+        static List<double> Median_Filter(List<double> data, int windowSize)
+        {
+            List<double> filteredData = new List<double>();
+
+            for (int i = 0; i <= data.Count - windowSize; i++)
+            {
+                List<double> temp = new List<double>();
+
+                // Populate the temporary list with data within the window
+                for (int j = i; j < i + windowSize; j++)
+                {
+                    temp.Add(data[j]);
+                }
+
+                // Sort the temporary list
+                temp.Sort();
+
+                double median;
+                int mid = windowSize / 2;
+
+                // Calculate median based on window size
+                if (windowSize % 2 == 0)
+                {
+                    median = (temp[mid - 1] + temp[mid]) / 2.0;
+                }
+                else
+                {
+                    median = temp[mid];
+                }
+
+                // Add median to the filtered data
+                filteredData.Add(median);
+            }
+
+            return filteredData;
+        }
+
+
 
         static double[] Lowpass(List<double> x, double dt, double RC)
         {
@@ -184,10 +224,10 @@ namespace sPlotter
 
             // Plot the array
             formsPlot1.Plot.Add.SignalXY(arr_x, arr_y);
-
+            
 
             // If Moving average is selected, plot moving average
-            if(checkedListBox1.GetItemChecked(0) == true )
+            if (checkBox_MAV.Checked)
             {
                 if (y.Count > ((int)numericUpDown1.Value)) { 
 
@@ -198,7 +238,7 @@ namespace sPlotter
             }
 
             // If Low pass filter applied, implement low pass filter
-            if (checkedListBox2.GetItemChecked(0) == true)
+            if (checkBox_LPF.Checked)
             {
                 double[] lpf_data = Lowpass(y, double.Parse(RC_txtBox.Text), double.Parse(dT_txtBox.Text));
                 formsPlot1.Plot.Add.Signal(lpf_data);
@@ -206,13 +246,19 @@ namespace sPlotter
             }
 
             // If Low pass filter applied, implement low pass filter
-            if (checkedListBox3.GetItemChecked(0) == true)
+            if (checkBox_HPF.Checked)
             {
                 double[] hpf_data = Highpass(y, double.Parse(hpf_RC_txtbx.Text), double.Parse(hpf_dT_txtbx.Text));
                 formsPlot1.Plot.Add.Signal(hpf_data);
 
             }
 
+            //If median filter is checked
+            if(checkBox_MedF.Checked && y.Count > numericUpDown2.Value)
+            {
+                List<double> Medium_array = Median_Filter(y, ((int)numericUpDown2.Value));
+                formsPlot1.Plot.Add.Signal(Medium_array);
+            }
 
             //If FFT selected - to be added
 
@@ -220,7 +266,6 @@ namespace sPlotter
 
 
             formsPlot1.Refresh();
-
             richTextBox1.ScrollToCaret();
         }
 
@@ -273,13 +318,6 @@ namespace sPlotter
                 // Save the contents of the RichTextBox into the file.
                 richTextBox1.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
             }
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            checkedListBox1.Enabled = true;
-
-
         }
     }
 

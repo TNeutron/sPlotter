@@ -38,26 +38,38 @@
             button2 = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            hpf_dT_txtbx = new TextBox();
-            label6 = new Label();
-            label7 = new Label();
-            hpf_RC_txtbx = new TextBox();
-            checkedListBox3 = new CheckedListBox();
-            dT_txtBox = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            RC_txtBox = new TextBox();
-            checkedListBox2 = new CheckedListBox();
+            panel4 = new Panel();
+            numericUpDown2 = new NumericUpDown();
+            label9 = new Label();
+            checkBox_MedF = new CheckBox();
             label3 = new Label();
+            panel1 = new Panel();
+            checkBox_MAV = new CheckBox();
             numericUpDown1 = new NumericUpDown();
-            checkedListBox1 = new CheckedListBox();
+            panel2 = new Panel();
+            RC_txtBox = new TextBox();
+            checkBox_LPF = new CheckBox();
+            label4 = new Label();
+            label5 = new Label();
+            dT_txtBox = new TextBox();
+            panel3 = new Panel();
+            checkBox_HPF = new CheckBox();
+            hpf_RC_txtbx = new TextBox();
+            hpf_dT_txtbx = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
             tabPage2 = new TabPage();
             label8 = new Label();
             FFT_window_size_NumUpDn = new NumericUpDown();
             checkedListBox4 = new CheckedListBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)FFT_window_size_NumUpDn).BeginInit();
             SuspendLayout();
@@ -155,19 +167,11 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(hpf_dT_txtbx);
-            tabPage1.Controls.Add(label6);
-            tabPage1.Controls.Add(label7);
-            tabPage1.Controls.Add(hpf_RC_txtbx);
-            tabPage1.Controls.Add(checkedListBox3);
-            tabPage1.Controls.Add(dT_txtBox);
-            tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(label4);
-            tabPage1.Controls.Add(RC_txtBox);
-            tabPage1.Controls.Add(checkedListBox2);
+            tabPage1.Controls.Add(panel4);
             tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(numericUpDown1);
-            tabPage1.Controls.Add(checkedListBox1);
+            tabPage1.Controls.Add(panel1);
+            tabPage1.Controls.Add(panel2);
+            tabPage1.Controls.Add(panel3);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -176,114 +180,186 @@
             tabPage1.Text = "Time Domain";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // hpf_dT_txtbx
+            // panel4
             // 
-            hpf_dT_txtbx.Location = new Point(157, 158);
-            hpf_dT_txtbx.Name = "hpf_dT_txtbx";
-            hpf_dT_txtbx.Size = new Size(91, 23);
-            hpf_dT_txtbx.TabIndex = 13;
+            panel4.Controls.Add(numericUpDown2);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(checkBox_MedF);
+            panel4.Location = new Point(6, 212);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(260, 55);
+            panel4.TabIndex = 20;
             // 
-            // label6
+            // numericUpDown2
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(131, 161);
-            label6.Name = "label6";
-            label6.Size = new Size(20, 15);
-            label6.TabIndex = 12;
-            label6.Text = "dT";
+            numericUpDown2.Location = new Point(92, 23);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(121, 23);
+            numericUpDown2.TabIndex = 2;
+            numericUpDown2.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // label7
+            // label9
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(14, 161);
-            label7.Name = "label7";
-            label7.Size = new Size(22, 15);
-            label7.TabIndex = 11;
-            label7.Text = "RC";
+            label9.AutoSize = true;
+            label9.Location = new Point(12, 25);
+            label9.Name = "label9";
+            label9.Size = new Size(74, 15);
+            label9.TabIndex = 1;
+            label9.Text = "Window Size";
             // 
-            // hpf_RC_txtbx
+            // checkBox_MedF
             // 
-            hpf_RC_txtbx.Location = new Point(42, 158);
-            hpf_RC_txtbx.Name = "hpf_RC_txtbx";
-            hpf_RC_txtbx.Size = new Size(73, 23);
-            hpf_RC_txtbx.TabIndex = 10;
-            // 
-            // checkedListBox3
-            // 
-            checkedListBox3.FormattingEnabled = true;
-            checkedListBox3.Items.AddRange(new object[] { "High Pass Filter" });
-            checkedListBox3.Location = new Point(6, 134);
-            checkedListBox3.Name = "checkedListBox3";
-            checkedListBox3.Size = new Size(260, 58);
-            checkedListBox3.TabIndex = 9;
-            // 
-            // dT_txtBox
-            // 
-            dT_txtBox.Location = new Point(157, 94);
-            dT_txtBox.Name = "dT_txtBox";
-            dT_txtBox.Size = new Size(91, 23);
-            dT_txtBox.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(131, 97);
-            label5.Name = "label5";
-            label5.Size = new Size(20, 15);
-            label5.TabIndex = 7;
-            label5.Text = "dT";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(14, 97);
-            label4.Name = "label4";
-            label4.Size = new Size(22, 15);
-            label4.TabIndex = 6;
-            label4.Text = "RC";
-            // 
-            // RC_txtBox
-            // 
-            RC_txtBox.Location = new Point(42, 94);
-            RC_txtBox.Name = "RC_txtBox";
-            RC_txtBox.Size = new Size(73, 23);
-            RC_txtBox.TabIndex = 5;
-            // 
-            // checkedListBox2
-            // 
-            checkedListBox2.FormattingEnabled = true;
-            checkedListBox2.Items.AddRange(new object[] { "Low Pass Filter" });
-            checkedListBox2.Location = new Point(6, 70);
-            checkedListBox2.Name = "checkedListBox2";
-            checkedListBox2.Size = new Size(260, 58);
-            checkedListBox2.TabIndex = 4;
+            checkBox_MedF.AutoSize = true;
+            checkBox_MedF.Location = new Point(12, 3);
+            checkBox_MedF.Name = "checkBox_MedF";
+            checkBox_MedF.Size = new Size(95, 19);
+            checkBox_MedF.TabIndex = 0;
+            checkBox_MedF.Text = "Median Filter";
+            checkBox_MedF.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(22, 33);
+            label3.Location = new Point(18, 38);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 3;
             label3.Text = "Window Size";
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(checkBox_MAV);
+            panel1.Controls.Add(numericUpDown1);
+            panel1.Location = new Point(6, 6);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(260, 63);
+            panel1.TabIndex = 17;
+            // 
+            // checkBox_MAV
+            // 
+            checkBox_MAV.AutoSize = true;
+            checkBox_MAV.Location = new Point(11, 10);
+            checkBox_MAV.Name = "checkBox_MAV";
+            checkBox_MAV.Size = new Size(113, 19);
+            checkBox_MAV.TabIndex = 16;
+            checkBox_MAV.Text = "Moving Average";
+            checkBox_MAV.UseVisualStyleBackColor = true;
+            // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(106, 31);
+            numericUpDown1.Location = new Point(92, 30);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(121, 23);
             numericUpDown1.TabIndex = 1;
             numericUpDown1.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // checkedListBox1
+            // panel2
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Moving Average" });
-            checkedListBox1.Location = new Point(6, 6);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(260, 58);
-            checkedListBox1.TabIndex = 2;
-            checkedListBox1.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
+            panel2.Controls.Add(RC_txtBox);
+            panel2.Controls.Add(checkBox_LPF);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(dT_txtBox);
+            panel2.Location = new Point(6, 75);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(260, 64);
+            panel2.TabIndex = 18;
+            // 
+            // RC_txtBox
+            // 
+            RC_txtBox.Location = new Point(45, 28);
+            RC_txtBox.Name = "RC_txtBox";
+            RC_txtBox.Size = new Size(73, 23);
+            RC_txtBox.TabIndex = 5;
+            // 
+            // checkBox_LPF
+            // 
+            checkBox_LPF.AutoSize = true;
+            checkBox_LPF.Location = new Point(11, 9);
+            checkBox_LPF.Name = "checkBox_LPF";
+            checkBox_LPF.Size = new Size(103, 19);
+            checkBox_LPF.TabIndex = 14;
+            checkBox_LPF.Text = "Low Pass Filter";
+            checkBox_LPF.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(18, 31);
+            label4.Name = "label4";
+            label4.Size = new Size(22, 15);
+            label4.TabIndex = 6;
+            label4.Text = "RC";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(126, 31);
+            label5.Name = "label5";
+            label5.Size = new Size(20, 15);
+            label5.TabIndex = 7;
+            label5.Text = "dT";
+            // 
+            // dT_txtBox
+            // 
+            dT_txtBox.Location = new Point(152, 28);
+            dT_txtBox.Name = "dT_txtBox";
+            dT_txtBox.Size = new Size(91, 23);
+            dT_txtBox.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(checkBox_HPF);
+            panel3.Controls.Add(hpf_RC_txtbx);
+            panel3.Controls.Add(hpf_dT_txtbx);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(label6);
+            panel3.Location = new Point(6, 145);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(260, 61);
+            panel3.TabIndex = 19;
+            // 
+            // checkBox_HPF
+            // 
+            checkBox_HPF.AutoSize = true;
+            checkBox_HPF.Location = new Point(11, 6);
+            checkBox_HPF.Name = "checkBox_HPF";
+            checkBox_HPF.Size = new Size(107, 19);
+            checkBox_HPF.TabIndex = 15;
+            checkBox_HPF.Text = "High Pass Filter";
+            checkBox_HPF.UseVisualStyleBackColor = true;
+            // 
+            // hpf_RC_txtbx
+            // 
+            hpf_RC_txtbx.Location = new Point(45, 25);
+            hpf_RC_txtbx.Name = "hpf_RC_txtbx";
+            hpf_RC_txtbx.Size = new Size(73, 23);
+            hpf_RC_txtbx.TabIndex = 10;
+            // 
+            // hpf_dT_txtbx
+            // 
+            hpf_dT_txtbx.Location = new Point(152, 25);
+            hpf_dT_txtbx.Name = "hpf_dT_txtbx";
+            hpf_dT_txtbx.Size = new Size(91, 23);
+            hpf_dT_txtbx.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(18, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(22, 15);
+            label7.TabIndex = 11;
+            label7.Text = "RC";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(126, 28);
+            label6.Name = "label6";
+            label6.Size = new Size(20, 15);
+            label6.TabIndex = 12;
+            label6.Text = "dT";
             // 
             // tabPage2
             // 
@@ -345,7 +421,16 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)FFT_window_size_NumUpDn).EndInit();
@@ -368,8 +453,6 @@
         private TabPage tabPage2;
         private NumericUpDown numericUpDown1;
         private Label label3;
-        private CheckedListBox checkedListBox1;
-        private CheckedListBox checkedListBox2;
         private TextBox dT_txtBox;
         private Label label5;
         private Label label4;
@@ -378,9 +461,18 @@
         private Label label6;
         private Label label7;
         private TextBox hpf_RC_txtbx;
-        private CheckedListBox checkedListBox3;
         private Label label8;
         private NumericUpDown FFT_window_size_NumUpDn;
         private CheckedListBox checkedListBox4;
+        private CheckBox checkBox_HPF;
+        private CheckBox checkBox_LPF;
+        private Panel panel1;
+        private CheckBox checkBox_MAV;
+        private Panel panel4;
+        private Panel panel2;
+        private Panel panel3;
+        private NumericUpDown numericUpDown2;
+        private Label label9;
+        private CheckBox checkBox_MedF;
     }
 }
