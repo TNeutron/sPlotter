@@ -214,7 +214,7 @@ namespace sPlotter
             // Push the Incoming data to Terminal
             richTextBox1.AppendText(newText + "\n");
 
-            // Cast the value to number and store it in array/
+            // Cast the value to number and store it in array
             double val = double.Parse(newText);
             y.Add(val);
             x.Add(y.Count);
@@ -222,16 +222,14 @@ namespace sPlotter
             double[] arr_x = x.ToArray();
             double[] arr_y = y.ToArray();
 
-            // Plot the array
+            // Plot the original array
             formsPlot1.Plot.Add.SignalXY(arr_x, arr_y);
-            
 
             // If Moving average is selected, plot moving average
             if (checkBox_MAV.Checked)
             {
-                if (y.Count > ((int)numericUpDown1.Value)) { 
-
-                    // Push the main signal to MovingAverage Function that returns filtered signal as List
+                if (y.Count > ((int)numericUpDown1.Value))
+                {
                     List<double> Moving_avg_array = MovingAverage(y, ((int)numericUpDown1.Value));
                     formsPlot1.Plot.Add.Signal(Moving_avg_array.ToArray());
                 }
@@ -242,29 +240,30 @@ namespace sPlotter
             {
                 double[] lpf_data = Lowpass(y, double.Parse(RC_txtBox.Text), double.Parse(dT_txtBox.Text));
                 formsPlot1.Plot.Add.Signal(lpf_data);
-                
             }
 
-            // If Low pass filter applied, implement low pass filter
+            // If High pass filter applied, implement high pass filter
             if (checkBox_HPF.Checked)
             {
                 double[] hpf_data = Highpass(y, double.Parse(hpf_RC_txtbx.Text), double.Parse(hpf_dT_txtbx.Text));
                 formsPlot1.Plot.Add.Signal(hpf_data);
-
             }
 
-            //If median filter is checked
-            if(checkBox_MedF.Checked && y.Count > numericUpDown2.Value)
+            // If median filter is checked
+            if (checkBox_MedF.Checked && y.Count > numericUpDown2.Value)
             {
                 List<double> Medium_array = Median_Filter(y, ((int)numericUpDown2.Value));
                 formsPlot1.Plot.Add.Signal(Medium_array);
             }
 
-            //If FFT selected - to be added
+            // If Wiener filter is checked
+            if (checkBox_wienerF.Checked && y.Count > numericUpDown3.Value)
+            {
+                List<double> wiener_array = WienerFilter(y, ((int)numericUpDown3.Value));
+                formsPlot1.Plot.Add.Signal(wiener_array.ToArray());
+            }
 
-
-
-
+            // Refresh the plot
             formsPlot1.Refresh();
             richTextBox1.ScrollToCaret();
         }
@@ -319,6 +318,38 @@ namespace sPlotter
                 richTextBox1.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
             }
         }
+
+
+        static List<double> WienerFilter(List<double> data, int windowSize)
+        {
+            
+            List<double> filteredData = new List<double>();
+
+         
+            for (int i = 0; i <= data.Count - windowSize; i++)
+            {
+               
+                List<double> window = new List<double>();
+                for (int j = i; j < i + windowSize; j++)
+                {
+                    window.Add(data[j]);
+                }
+
+              
+                double mean = window.Average();
+                double variance = window.Sum(val => (val - mean) * (val - mean)) / windowSize;
+
+            
+                double signalVariance = variance > 0 ? variance : 0.0001; 
+                double filteredVal = mean + (signalVariance / (signalVariance + variance)) * (data[i] - mean);
+
+            
+                filteredData.Add(filteredVal);
+            }
+
+            return filteredData;
+        }
+
     }
 
 }
