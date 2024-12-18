@@ -2,6 +2,7 @@ using ScottPlot;
 using System.IO.Ports;
 using System.Security.Cryptography;
 
+
 namespace sPlotter
 {
     public partial class Form1 : Form
@@ -26,98 +27,6 @@ namespace sPlotter
         {
             InitializeComponent();
         }
-
-        static List<double> MovingAverage(List<double> data, int windowSize)
-        {
-            List<double> filteredData = new List<double>();
-
-            for (int i = windowSize-1; i != (data.Count-1); i++)
-            {
-                double sum = 0;
-
-                for (int j = windowSize-1; j != 0; j--)
-                {
-                    sum = sum + data[i - j];
-
-                }
-
-                // Calculate the average and add it to the filtered data
-                filteredData.Add((double)(sum / windowSize));
-            }
-
-            return filteredData;
-        }
-
-        static List<double> Median_Filter(List<double> data, int windowSize)
-        {
-            List<double> filteredData = new List<double>();
-
-            for (int i = 0; i <= data.Count - windowSize; i++)
-            {
-                List<double> temp = new List<double>();
-
-                // Populate the temporary list with data within the window
-                for (int j = i; j < i + windowSize; j++)
-                {
-                    temp.Add(data[j]);
-                }
-
-                // Sort the temporary list
-                temp.Sort();
-
-                double median;
-                int mid = windowSize / 2;
-
-                // Calculate median based on window size
-                if (windowSize % 2 == 0)
-                {
-                    median = (temp[mid - 1] + temp[mid]) / 2.0;
-                }
-                else
-                {
-                    median = temp[mid];
-                }
-
-                // Add median to the filtered data
-                filteredData.Add(median);
-            }
-
-            return filteredData;
-        }
-
-
-
-        static double[] Lowpass(List<double> x, double dt, double RC)
-        {
-            int n = x.Count;
-            double[] y = new double[n];
-            double alpha = dt / (RC + dt);
-            
-            y[0] = alpha * x[0];
-            
-            for (int i = 1; i < n; i++)
-            {
-                y[i] = alpha * x[i] + (1 - alpha) * y[i - 1];
-            }
-            return y;
-        }
-
-        static double[] Highpass(List<double> x, double dt, double RC)
-        {
-            int n = x.Count;
-            double[] y = new double[n];
-            double alpha = RC / (RC + dt);
-
-            y[0] = x[0];
-            for (int i = 1; i < n; i++)
-            {
-                y[i] = alpha * y[i - 1] + alpha * (x[i] - x[i - 1]);
-            }
-
-            return y;
-        }
-
-
 
 
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
@@ -230,36 +139,37 @@ namespace sPlotter
             {
                 if (y.Count > ((int)numericUpDown1.Value))
                 {
-                    List<double> Moving_avg_array = MovingAverage(y, ((int)numericUpDown1.Value));
+                    List<double> Moving_avg_array = DSP_functions.MovingAverage(y, ((int)numericUpDown1.Value));
                     formsPlot1.Plot.Add.Signal(Moving_avg_array.ToArray());
                 }
             }
-
+            
+            
             // If Low pass filter applied, implement low pass filter
             if (checkBox_LPF.Checked)
             {
-                double[] lpf_data = Lowpass(y, double.Parse(RC_txtBox.Text), double.Parse(dT_txtBox.Text));
+                double[] lpf_data = DSP_functions.Lowpass(y, double.Parse(RC_txtBox.Text), double.Parse(dT_txtBox.Text));
                 formsPlot1.Plot.Add.Signal(lpf_data);
             }
 
             // If High pass filter applied, implement high pass filter
             if (checkBox_HPF.Checked)
             {
-                double[] hpf_data = Highpass(y, double.Parse(hpf_RC_txtbx.Text), double.Parse(hpf_dT_txtbx.Text));
+                double[] hpf_data = DSP_functions.Highpass(y, double.Parse(hpf_RC_txtbx.Text), double.Parse(hpf_dT_txtbx.Text));
                 formsPlot1.Plot.Add.Signal(hpf_data);
             }
 
             // If median filter is checked
             if (checkBox_MedF.Checked && y.Count > numericUpDown2.Value)
             {
-                List<double> Medium_array = Median_Filter(y, ((int)numericUpDown2.Value));
+                List<double> Medium_array = DSP_functions.Median_Filter(y, ((int)numericUpDown2.Value));
                 formsPlot1.Plot.Add.Signal(Medium_array);
             }
 
             // If Wiener filter is checked
             if (checkBox_wienerF.Checked && y.Count > numericUpDown3.Value)
             {
-                List<double> wiener_array = WienerFilter(y, ((int)numericUpDown3.Value));
+                List<double> wiener_array = DSP_functions.WienerFilter(y, ((int)numericUpDown3.Value));
                 formsPlot1.Plot.Add.Signal(wiener_array.ToArray());
             }
 
@@ -317,37 +227,6 @@ namespace sPlotter
                 // Save the contents of the RichTextBox into the file.
                 richTextBox1.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
             }
-        }
-
-
-        static List<double> WienerFilter(List<double> data, int windowSize)
-        {
-            
-            List<double> filteredData = new List<double>();
-
-         
-            for (int i = 0; i <= data.Count - windowSize; i++)
-            {
-               
-                List<double> window = new List<double>();
-                for (int j = i; j < i + windowSize; j++)
-                {
-                    window.Add(data[j]);
-                }
-
-              
-                double mean = window.Average();
-                double variance = window.Sum(val => (val - mean) * (val - mean)) / windowSize;
-
-            
-                double signalVariance = variance > 0 ? variance : 0.0001; 
-                double filteredVal = mean + (signalVariance / (signalVariance + variance)) * (data[i] - mean);
-
-            
-                filteredData.Add(filteredVal);
-            }
-
-            return filteredData;
         }
 
     }

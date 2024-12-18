@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sPlotter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5686f2aca889fd8f457e066729f40636d323b101")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bf46b8ae1bf00e1e7162c5059823153fd17118b")]
 [assembly: System.Reflection.AssemblyProductAttribute("sPlotter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sPlotter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -847,23 +847,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\": {},
+    "C:\\Users\\tnowr\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sayed Nowroz\\source\\repos\\sPlotter\\sPlotter.csproj",
+      "projectUniqueName": "C:\\Users\\tnowr\\OneDrive\\Documents\\GitHub\\sPlotter\\sPlotter.csproj",
       "projectName": "sPlotter",
-      "projectPath": "C:\\Users\\Sayed Nowroz\\source\\repos\\sPlotter\\sPlotter.csproj",
-      "packagesPath": "C:\\Users\\Sayed Nowroz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sayed Nowroz\\source\\repos\\sPlotter\\obj\\",
+      "projectPath": "C:\\Users\\tnowr\\OneDrive\\Documents\\GitHub\\sPlotter\\sPlotter.csproj",
+      "packagesPath": "C:\\Users\\tnowr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tnowr\\OneDrive\\Documents\\GitHub\\sPlotter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sayed Nowroz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tnowr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -931,7 +931,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
